@@ -6,24 +6,6 @@ import time
 import fileCreatorRack
 import re
 
-#Poczatek - generowanie bazy lub nie
-
-print("Generowanie bazy...")
-try:
-    file = open("netbox_racks.txt", "x") #x nie doda pliku, gdy juz istnieje
-    file.write("site,name,facility_id,tenant,status,width,u_height,comments")
-    file.close()
-except:
-    print("Plik istnieje. Wygenerowac nowy? (y/n)")
-    newFileBoolean = input()
-    if newFileBoolean == "y":
-        file = open("netbox_racks.txt", "w") #w nadpisze dokument
-        file.write("site,name,facility_id,tenant,status,width,u_height,comments")
-        file.close()
-    else: pass
-
-#Koniec generowania bazy
-
 print("Wprowadz FACILITY_ID (numer obiektu plus numer ASN):")
 facility_id = input()
 siteName = grabSiteName.mSiteName(facility_id)
